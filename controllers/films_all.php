@@ -1,4 +1,4 @@
 <?php
 include '../modules/header.html';
-include '../modules/searched_all.php';
+include '../modules/select_all_films.php';
 include '../modules/footer.html';

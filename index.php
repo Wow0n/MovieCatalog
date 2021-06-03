@@ -1,2 +1,2 @@
 <?php
-include 'controlers/start.php';
+header('Location: controllers/start.php');
