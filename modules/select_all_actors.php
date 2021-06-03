@@ -7,7 +7,7 @@
             <button type="submit" class="btn btn-outline-success">Szukaj</button>
         </form>
         <?php
-        include 'select_table.php';
+        include 'select_actor_table.php';
         ?>
     </article>
 </div>

@@ -1,4 +1,4 @@
 <?php
 include '../modules/header.html';
-include '../modules/search_film.php';
+include '../modules/select_all_actors.php';
 include '../modules/footer.html';

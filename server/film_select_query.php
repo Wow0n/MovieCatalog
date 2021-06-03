@@ -8,7 +8,8 @@ if ($db->getInstance() === null) {
 }
 
 try {
-    $query = "SELECT * FROM v_select WHERE tytul like '%" . $_POST['phrase'] . "%'";
+
+    $query = "SELECT * FROM v_select WHERE tytul like '%" . $_POST['phrase'] . "%' or  gatunek like '%" . $_POST['phrase'] . "%' ORDER BY tytul";
     $result = $db->getInstance()->prepare($query);
 
     $result->execute();

@@ -48,3 +48,11 @@ header, footer, article, nav, aside {
 .table_row{
     width: 20%;
 }
+
+.table_column{
+    cursor: pointer;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #d4eed4;
+}

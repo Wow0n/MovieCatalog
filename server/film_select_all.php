@@ -8,7 +8,7 @@ if ($db->getInstance() === null) {
 }
 
 try {
-    $query = "SELECT * FROM v_select";
+    $query = "SELECT * FROM v_select ORDER BY tytul";
     $result = $db->getInstance()->prepare($query);
 
     $result->execute();
