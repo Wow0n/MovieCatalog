@@ -40,3 +40,16 @@ footer {
 header, footer, article, nav, aside {
     padding: 1em;
 }
+
+.searched_films{
+    border: 1px gray solid;
+    border-radius: 15px 50px;
+    padding: 20px;
+    margin: 20px;
+    width: 50%;
+}
+
+.searched_films > img{
+    width: 7%;
+    height: 7%;
+}

@@ -10,10 +10,8 @@ if ($db->getInstance() === null) {
 try {
     $query = "SELECT * FROM v_select";
     $result = $db->getInstance()->prepare($query);
+
     $result->execute();
-
-
-    print_r($result->fetchAll());
 
 } catch (PDOException $e) {
     echo $e;
