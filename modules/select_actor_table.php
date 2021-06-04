@@ -1,5 +1,4 @@
 <?php
-require_once('../server/Database.php');
 include '../server/actors_select_all.php';
 
 echo "<br><table class='table table-striped w-50' id='table'>
@@ -14,7 +13,7 @@ echo "<br><table class='table table-striped w-50' id='table'>
 
 while ($row = $result->fetch()) {
     echo "<tr class='text-center'>";
-    echo "<td class='table_row'><p>" . $row->id . " " . $row->imie . "</p></td>";
+    echo "<td class='table_row'><p>" . $row->imie . "</p></td>";
     echo "<td class='table_row'><p>" . $row->nazwisko . "</p></td>";
     echo "<td class='table_row'><p>" . $row->role . "</p></td>";
 
@@ -22,8 +21,8 @@ while ($row = $result->fetch()) {
 }
 echo " </tbody></table>";
 
-echo "<form method='post'><input type='submit' name='next' value='Nastepna'></form>";
-echo "<form method='post'><input type='submit' name='previous' value='Poprzednia'></form>";
+echo "<div class='form-inline'><form method='post'><input type='submit' name='previous' value='Poprzednia'>  ";
+echo "<input type='submit' name='next' value='Nastepna'></form></div>";
 
 ?>
 <script>

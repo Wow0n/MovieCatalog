@@ -1,5 +1,4 @@
 <?php
-require_once('../server/Database.php');
 include '../server/film_select_query.php';
 
 if ($result->rowCount() != 0) {
@@ -16,8 +15,9 @@ if ($result->rowCount() != 0) {
 
 
     while ($row = $result->fetch()) {
-        echo "<tr class='text-center'>";
-        echo "<td class='table_row'><img class='img-fluid' src='" . $row->link_plakat . "' alt='plakat'></td>";
+        echo "<tr class='text-center' style='transform: rotate(0);'>";
+        echo "<th scope='row' class='table_row'><a href='../controllers/film_details.php?id=" . $row->id . "' class='stretched-link'>
+              <img class='img-fluid' src='" . $row->link_plakat . "' alt='plakat'></a></th>";
         echo "<td class='table_row'><p>" . $row->tytul . "</p></td>";
         echo "<td class='table_row'><p>" . $row->gatunek . "</p></td>";
 
@@ -31,10 +31,14 @@ if ($result->rowCount() != 0) {
     }
     echo " </tbody></table>";
 
+
+    echo "<div class='form-inline'><form method='post'><input type='submit' name='previous' value='Poprzednia'>  ";
+    echo "<input type='submit' name='next' value='Nastepna'></form></div>";
+
 } else {
     echo "Tytuł lub gatunek zawierający \"" . $_POST['phrase'] . "\" nie istnieje w bazie!";
-
 }
+
 ?>
 <script>
     function sortTable(n) {

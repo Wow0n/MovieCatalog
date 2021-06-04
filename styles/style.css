@@ -22,10 +22,10 @@ body {
     text-align: center;
 }
 
-/*#main > aside {*/
-/*    flex: 0 0 20vw;*/
-/*    background: beige;*/
-/*}*/
+#main > aside {
+    flex: 0 0 20vw;
+    background: beige;
+}
 
 header {
     background: #7eb685;
@@ -45,14 +45,37 @@ header, footer, article, nav, aside {
     margin: auto;
 }
 
-.table_row{
+.table_row {
     width: 20%;
 }
 
-.table_column{
+.table_column {
     cursor: pointer;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #d4eed4;
+}
+
+.table_detail {
+    width: 30%;
+}
+
+.table_rating {
+    width: 10%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+h1, h2, h3, h4 {
+    display: inline-block;
+}
+
+.actor_bullet {
+    list-style: none;
+}
+.actor_bullet > li::before {
+    content: "★";
+    display: inline-block;
+    margin-right: 0.2rem;
 }
