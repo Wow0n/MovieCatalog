@@ -24,7 +24,7 @@ body {
 
 #main > aside {
     flex: 0 0 20vw;
-    background: beige;
+    background: #dcf5dc;
 }
 
 header {
@@ -75,7 +75,30 @@ h1, h2, h3, h4 {
     list-style: none;
 }
 .actor_bullet > li::before {
-    content: "★";
+    content: "⭐";
     display: inline-block;
     margin-right: 0.2rem;
+}
+.director_bullet {
+    list-style: none;
+}
+.director_bullet > li::before {
+    content: "🎬";
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+iframe{
+    text-align: center;
+    width: 100% !important;
+    height: 360px !important;
+}
+.carousel {
+    width:640px;
+    height:360px;
+}
+.link_moviedb{
+    color: #85a587;
+}
+.link_moviedb:hover{
+    color: #566a57;
 }

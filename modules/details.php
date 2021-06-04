@@ -11,8 +11,8 @@ include '../server/film_details.php';
             <tr>
                 <td rowspan='3' class='table_detail'><img class='img-fluid' src='" . $row->link_plakat . "' alt='plakat'></td>
                 <td>
-                    <h2>$row->tytul</h2>     <h3>(" . (date('Y', strtotime($row->data_premiery))) . ")</h3><br>
-                    $row->gatunek • $row->czas_trwania min (" . date('G \h i \m\i\n', mktime(0, $row->czas_trwania)) . ")<br>";
+                    <a class='link_moviedb' target='_blank' href='$row->link_ogolny'><h2>$row->tytul</h2></a>     <h3>(" . (date('Y', strtotime($row->data_premiery))) . ")</h3><br>
+                    $row4->gatunki • $row->czas_trwania min (" . date('G \h i \m\i\n', mktime(0, $row->czas_trwania)) . ")<br>";
 
             if ($row->ilosc_ocen != 0) {
                 echo "<td class='table_rating'><p>" . $row->srednia_ocen . " (" . $row->ilosc_ocen . ")</p></td>";
@@ -27,8 +27,12 @@ include '../server/film_details.php';
             </tr>
             <tr>
                 <td colspan='2'>
-                Reżyser: $row->rezyser_imie $row->rezyser_nazwisko<br><br>
-                Aktorzy:<ul class='actor_bullet'>";
+                Reżyser:<ul class='director_bullet'>";
+
+            while ($row5 = $result5->fetch()) {
+                echo "<li>$row5->imie $row5->nazwisko</li>";
+            }
+                echo "</ul><br><br>Aktorzy:<ul class='actor_bullet'>";
 
             while ($row2 = $result2->fetch()) {
                 echo "<li>$row2->imie $row2->nazwisko - $row2->rola</li>";
@@ -38,8 +42,7 @@ include '../server/film_details.php';
                 </td>
             </tr>
             <tr>
-                <td><iframe width='700px' height='500px' src='$row->link_zwiastun' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
-                <td colspan='2'>
+                <td>
                     <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
                           <div class='carousel-inner'>";
 
@@ -60,6 +63,7 @@ include '../server/film_details.php';
                           </button>
                         </div>
                 </td>
+                <td colspan='2'><iframe class='embed-responsive-item' src='$row->link_zwiastun' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
             </tr>";
             ?>
             </tbody>

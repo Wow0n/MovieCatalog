@@ -13,7 +13,6 @@ if ($result->rowCount() != 0) {
     </thead>
     <tbody>";
 
-
     while ($row = $result->fetch()) {
         echo "<tr class='text-center' style='transform: rotate(0);'>";
         echo "<th scope='row' class='table_row'><a href='../controllers/film_details.php?id=" . $row->id . "' class='stretched-link'>
@@ -26,11 +25,9 @@ if ($result->rowCount() != 0) {
         } else {
             echo "<td class='table_row'><p>Brak ocen!</p></td>";
         }
-
         echo "</tr>";
     }
     echo " </tbody></table>";
-
 
     echo "<div class='form-inline'><form method='post'><input type='submit' name='previous' value='Poprzednia'>  ";
     echo "<input type='submit' name='next' value='Nastepna'></form></div>";
