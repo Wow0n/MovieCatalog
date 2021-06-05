@@ -110,8 +110,13 @@ iframe {
     color: #566a57;
 }
 
-.form_add_film {
-    width: 35%;
+.form_center {
+    width: 40%;
+    margin: auto;
+}
+
+.form_acc {
+    width: 30%;
     margin: auto;
 }
 

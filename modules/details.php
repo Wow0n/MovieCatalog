@@ -46,7 +46,7 @@ include '../server/film_details.php';
             </tr>
             <tr>
                 <td>";
-            if ($row3 != null) {
+            if ($result3->rowcount() != null) {
                 echo "<div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
                           <div class='carousel-inner'>";
 

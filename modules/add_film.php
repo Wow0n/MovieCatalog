@@ -5,8 +5,8 @@
             include '../server/film_insert.php';
         }
         ?>
-        <div class="form_add_film">
-            <form action="" method="post">
+        <div class="form_center">
+            <form method="post">
                 <div class="mb-3">
                     <label for="Tytul" class="form-label">Tytul</label>
                     <input type="text" maxlength="254" class="form-control" name="tytul" id="Tytul" required>

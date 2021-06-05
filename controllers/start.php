@@ -1,5 +1,5 @@
 <?php
-include '../modules/header.html';
+include '../modules/header.php';
 echo "<div id='main'><article>";
 include '../modules/search_bar.html';
 echo "</div></article>";

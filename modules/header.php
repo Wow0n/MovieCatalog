@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -27,14 +28,26 @@
                     <a class="nav-link" href="../controllers/new_film.php">Dodaj film</a>
                 </li>
             </ul>
+            <?php
+            if (isset($_SESSION['account_name']))
+                echo "<span class='navbar-text'>
+                            Zalogowano jako: " . $_SESSION['account_name'] .
+                    "</span>";
+            ?>
             <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                     Menu użytkownika
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <?php
+                    if (!isset($_SESSION['account_name'])) {
+                        echo "<li><a class='dropdown-item' href='../controllers/sign_in.php'>Zaloguj się</a></li>
+                          <li><a class='dropdown-item' href='../controllers/create_account.php'>Swtórz konto</a></li>";
+                    } else {
+                        echo "<li><a class='dropdown-item' href='../controllers/log_out.php'>Wyloguj się</a></li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
