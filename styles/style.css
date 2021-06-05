@@ -74,31 +74,49 @@ h1, h2, h3, h4 {
 .actor_bullet {
     list-style: none;
 }
+
 .actor_bullet > li::before {
     content: "⭐";
     display: inline-block;
     margin-right: 0.2rem;
 }
+
 .director_bullet {
     list-style: none;
 }
+
 .director_bullet > li::before {
     content: "🎬";
     display: inline-block;
     margin-right: 0.2rem;
 }
-iframe{
+
+iframe {
     text-align: center;
     width: 100% !important;
     height: 360px !important;
 }
+
 .carousel {
-    width:640px;
-    height:360px;
+    width: 640px;
+    height: 360px;
 }
-.link_moviedb{
+
+.link_moviedb {
     color: #85a587;
 }
-.link_moviedb:hover{
+
+.link_moviedb:hover {
     color: #566a57;
+}
+
+.form_add_film {
+    width: 35%;
+    margin: auto;
+}
+
+.checkbox_gatunek {
+    column-count: 3;
+    column-gap: 2rem;
+    list-style: none;
 }

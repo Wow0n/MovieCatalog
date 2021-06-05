@@ -15,8 +15,14 @@ if ($result->rowCount() != 0) {
 
     while ($row = $result->fetch()) {
         echo "<tr class='text-center' style='transform: rotate(0);'>";
-        echo "<th scope='row' class='table_row'><a href='../controllers/film_details.php?id=" . $row->id . "' class='stretched-link'>
-              <img class='img-fluid' src='" . $row->link_plakat . "' alt='plakat'></a></th>";
+        echo "<th scope='row' class='table_row'><a href='../controllers/film_details.php?id=" . $row->id . "' class='stretched-link'>";
+        if ($row->link_plakat != null && filter_var($row->link_plakat, FILTER_VALIDATE_URL)) {
+            echo "<img class='img-fluid' src = '" . $row->link_plakat . "' alt = 'plakat' >";
+        } else {
+            echo "Brak plakatu!";
+        }
+
+        echo "</a></th>";
         echo "<td class='table_row'><p>" . $row->tytul . "</p></td>";
         echo "<td class='table_row'><p>" . $row->gatunek . "</p></td>";
 
