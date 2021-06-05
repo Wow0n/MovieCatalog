@@ -9,7 +9,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="haslo" class="form-label">Haslo</label>
-                    <input type="password" name="password" class="form-control" id="haslo" required>
+                    <input type="password" name="password" class="form-control" id="haslo" maxlength="254" required>
                 </div>
                 <button type="submit" name="acc_zaloguj" class="btn btn-outline-success">Zaloguj sie</button>
             </form>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 </head>
 <body>
@@ -25,13 +26,16 @@
                     <a class="nav-link" href="../controllers/actors_all.php">Wszyscy aktorzy</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">Statystyki</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../controllers/new_film.php">Dodaj film</a>
                 </li>
             </ul>
             <?php
             if (isset($_SESSION['account_name']))
                 echo "<span class='navbar-text'>
-                            Zalogowano jako: " . $_SESSION['account_name'] .
+                            Zalogowano jako: " . $_SESSION['account_login'] .
                     "</span>";
             ?>
             <div class="dropdown">
@@ -45,7 +49,11 @@
                         echo "<li><a class='dropdown-item' href='../controllers/sign_in.php'>Zaloguj się</a></li>
                           <li><a class='dropdown-item' href='../controllers/create_account.php'>Swtórz konto</a></li>";
                     } else {
+                        if ($_SESSION['account_role'] == 'admin') {
+                            echo "<li><a class='dropdown-item' href='#'>Panel admin</a></li>";
+                        }
                         echo "<li><a class='dropdown-item' href='../controllers/log_out.php'>Wyloguj się</a></li>";
+
                     }
                     ?>
                 </ul>

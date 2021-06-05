@@ -26,8 +26,8 @@ if ($result->rowCount() != 0) {
         echo "<td class='table_row'><p>" . $row->tytul . "</p></td>";
         echo "<td class='table_row'><p>" . $row->gatunek . "</p></td>";
 
-        if ($row->ilosc_ocen != 0) {
-            echo "<td class='table_row'><p>" . $row->srednia_ocen . " (" . $row->ilosc_ocen . ")</p></td>";
+        if ($row->ilosc > 0) {
+            echo "<td class='table_row'><p>" . $row->srednia . " (" . $row->ilosc . ")</p></td>";
         } else {
             echo "<td class='table_row'><p>Brak ocen!</p></td>";
         }

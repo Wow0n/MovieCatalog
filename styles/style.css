@@ -62,12 +62,12 @@ header, footer, article, nav, aside {
 }
 
 .table_rating {
-    width: 10%;
+    width: 15%;
     text-align: center;
     vertical-align: middle;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     display: inline-block;
 }
 
@@ -120,8 +120,87 @@ iframe {
     margin: auto;
 }
 
+.form_rate{
+    text-align: center;
+}
+
 .checkbox_gatunek {
     column-count: 3;
     column-gap: 2rem;
     list-style: none;
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+}
+
+.rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+}
+
+.rating label:last-child {
+    position: static;
+}
+
+.rating label:nth-child(1) {
+    z-index: 5;
+}
+
+.rating label:nth-child(2) {
+    z-index: 4;
+}
+
+.rating label:nth-child(3) {
+    z-index: 3;
+}
+
+.rating label:nth-child(4) {
+    z-index: 2;
+}
+
+.rating label:nth-child(5) {
+    z-index: 1;
+}
+
+.rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.rating label .icon {
+    float: left;
+    color: transparent;
+}
+
+.rating label:last-child .icon {
+    color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: #ffa200;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px #ffa200;
+}
+
+#star_checked {
+    color: #ffa200;
+    font-size: 25px;
+}
+#star {
+    color: #000000;
+    font-size: 25px;
 }
