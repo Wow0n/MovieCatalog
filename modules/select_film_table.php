@@ -35,8 +35,8 @@ if ($result->rowCount() != 0) {
     }
     echo " </tbody></table>";
 
-    echo "<div class='form-inline'><form method='post'><input type='submit' name='previous' value='Poprzednia'>  ";
-    echo "<input type='submit' name='next' value='Nastepna'></form></div>";
+//    echo "<div class='form-inline'><form method='post'><input type='submit' name='previous' value='Poprzednia'>  ";
+//    echo "<input type='submit' name='next' value='Nastepna'></form></div>";
 
 } else {
     echo "Tytuł lub gatunek zawierający \"" . $_POST['phrase'] . "\" nie istnieje w bazie!";

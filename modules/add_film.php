@@ -43,11 +43,9 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Reżyser</span>
-                    <input type="text" aria-label="imie" class="form-control" maxlength="63" pattern="[A-Za-z]{1,32}"
-                           placeholder="Imie"
+                    <input type="text" aria-label="imie" class="form-control" maxlength="63" placeholder="Imie"
                            name="rezyser_imie" required>
                     <input type="text" aria-label="nazwisko" class="form-control" maxlength="63"
-                           pattern="[A-Za-z]{1,32}"
                            placeholder="Nazwisko"
                            name="rezyser_nazwisko" required>
                     <input type="text" aria-label="data_ur" class="form-control"
@@ -60,13 +58,11 @@
                     <div class="input-group">
                         <span class="input-group-text">Aktor nr <?= $i ?></span>
                         <input type="text" name="aktor_imie[]" aria-label="imie" class="form-control"
-                               pattern="[A-Za-z]{1,32}"
                                maxlength="63"
                                placeholder="Imie" <?php if ($i <= 2) {
                             echo "required";
                         } ?>>
                         <input type="text" name="aktor_nazwisko[]" aria-label="nazwisko" class="form-control"
-                               pattern="[A-Za-z]{1,32}"
                                maxlength="63"
                                placeholder="Nazwisko" <?php if ($i <= 2) {
                             echo "required";

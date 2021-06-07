@@ -82,7 +82,7 @@ include '../server/film_details.php';
     </article>
     <aside>
         <?php
-        if ($row7_1->id_uzytkownik == $_SESSION['account_id']) {
+        if ($row7_1->id_uzytkownik == $_SESSION['account_id'] || $row7_1->id_uzytkownik == null) {
             echo"
             <div class='form_rate'>
             <h4 > Oceń film:</h4 ><br >

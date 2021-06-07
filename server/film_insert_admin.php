@@ -56,7 +56,7 @@ try {
             $aktor_id = $result->fetch();
         }
 
-        $query = "SELECT * FROM film_aktorzy WHERE id_aktor = $aktor_id->id and id_film = $film_id->id and rola = '" . $_POST['aktor_rola'][$i] ."'";
+        $query = "SELECT * FROM film_aktorzy WHERE id_aktor = $aktor_id->id and id_film = $film_id->id and rola = '" . $_POST['aktor_rola'][$i] . "'";
         $result = $db->getInstance()->prepare($query);
         $result->execute();
         $row = $result->fetch();
@@ -118,6 +118,12 @@ try {
 
     if (!$row) {
         $query = "INSERT INTO film_rezyser (id_film, id_rezyser) VALUE ($film_id->id, $rezyser_id->id)";
+        $result = $db->getInstance()->prepare($query);
+        $result->execute();
+    }
+
+    for ($i = 0; $i < count(array_filter($_POST['scena'])); $i++) {
+        $query = "INSERT INTO film_sceny (id_film, link_scena) VALUE ($film_id->id, '" . $_POST['scena'][$i] . "')";
         $result = $db->getInstance()->prepare($query);
         $result->execute();
     }

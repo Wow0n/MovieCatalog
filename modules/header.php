@@ -32,6 +32,7 @@
                     <a class="nav-link" href="../controllers/new_film.php">Dodaj film</a>
                 </li>
             </ul>
+
             <?php
             if (isset($_SESSION['account_name']))
                 echo "<span class='navbar-text'>
@@ -50,9 +51,13 @@
                           <li><a class='dropdown-item' href='../controllers/create_account.php'>Swtórz konto</a></li>";
                     } else {
                         if ($_SESSION['account_role'] == 'admin') {
-                            echo "<li><a class='dropdown-item' href='#'>Panel admin</a></li>";
+                            echo "<li><h6 class='dropdown-header'>Panel administratora</h6></li>
+                                  <li><a class='dropdown-item' href='../modules/add_film_admin.php'>Dodaj film</a></li>
+                                  <li><a class='dropdown-item' href='../modules/edit_film.php'>Edytuj film</a></li>
+                                  <li><a class='dropdown-item' href='#'>Usuń film</a></li>";
                         }
-                        echo "<li><a class='dropdown-item' href='../controllers/log_out.php'>Wyloguj się</a></li>";
+                        echo "<li><hr class='dropdown-divider'></li>
+                        <li><a class='dropdown-item' href='../controllers/log_out.php'>Wyloguj się</a></li>";
 
                     }
                     ?>
