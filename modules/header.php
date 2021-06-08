@@ -47,18 +47,17 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <?php
                     if (!isset($_SESSION['account_name'])) {
-                        echo "<li><a class='dropdown-item' href='../controllers/sign_in.php'>Zaloguj się</a></li>
-                          <li><a class='dropdown-item' href='../controllers/create_account.php'>Swtórz konto</a></li>";
+                        echo "<li><a class='dropdown-item' href='../controllers/create_account.php'>Stwórz konto</a></li>
+                              <li><a class='dropdown-item' href='../controllers/sign_in.php'>Zaloguj się</a></li>";
                     } else {
                         if ($_SESSION['account_role'] == 'admin') {
                             echo "<li><h6 class='dropdown-header'>Panel administratora</h6></li>
                                   <li><a class='dropdown-item' href='../modules/add_film_admin.php'>Dodaj film</a></li>
                                   <li><a class='dropdown-item' href='../modules/edit_film.php'>Edytuj film</a></li>
-                                  <li><a class='dropdown-item' href='#'>Usuń film</a></li>";
+                                  <li><a class='dropdown-item' href='../modules/delete_film.php'>Usuń film</a></li>
+                                  <li><hr class='dropdown-divider'></li>";
                         }
-                        echo "<li><hr class='dropdown-divider'></li>
-                        <li><a class='dropdown-item' href='../controllers/log_out.php'>Wyloguj się</a></li>";
-
+                        echo "<li><a class='dropdown-item' href='../controllers/log_out.php'>Wyloguj się</a></li>";
                     }
                     ?>
                 </ul>

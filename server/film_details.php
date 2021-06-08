@@ -41,12 +41,12 @@ try {
     $row6 = $result6->fetch();
     $query6 = null;
 
-    if (isset($_POST['comment_add'])) {
-        $query7_1 = "SELECT id_uzytkownik FROM oceny WHERE id_film = " . $_GET['id'];
-        $result7_1 = $db->getInstance()->prepare($query7_1);
-        $result7_1->execute();
-        $row7_1 = $result7_1->fetch();
+    $query7_1 = "SELECT id_uzytkownik FROM oceny WHERE id_film = " . $_GET['id'];
+    $result7_1 = $db->getInstance()->prepare($query7_1);
+    $result7_1->execute();
+    $row7_1 = $result7_1->fetch();
 
+    if (isset($_POST['comment_add'])) {
         $query7 = "INSERT INTO oceny (id, id_film, id_uzytkownik, watrosc_oceny, komentarz)
                    VALUE (DEFAULT, ?, ?,? ,?)";
         $result7 = $db->getInstance()->prepare($query7);

@@ -26,7 +26,7 @@
                 if (str_contains($row4->gatunki, $array[$i])) {
                     echo " checked ";
                 }
-                echo "required>
+                echo "
                                 <label class='form-check-label' for='flexCheckDefault'>
                                     $array[$i]
                                 </label></li>";
@@ -44,16 +44,18 @@
             <textarea class="form-control" name="opis" id="opis" rows="5" maxlength="1200"
                       required><?php echo $row->opis ?></textarea>
         </div>
+        <?php $row5 = $result5->fetch(); ?>
         <div class="input-group">
             <span class="input-group-text">Reżyser</span>
             <input type="text" aria-label="imie" class="form-control" maxlength="63" placeholder="Imie"
-                   name="rezyser_imie" required>
+                   name="rezyser_imie" <?php echo "value='$row5->imie'" ?> required>
             <input type="text" aria-label="nazwisko" class="form-control" maxlength="63"
                    placeholder="Nazwisko"
-                   name="rezyser_nazwisko" required>
+                   name="rezyser_nazwisko" <?php echo "value='$row5->nazwisko'" ?> required>
             <input type="text" aria-label="data_ur" class="form-control"
                    name="rezyser_data" placeholder="Data urodzenia" onfocus="(this.type='date')"
-                   onblur="(this.type='text')" required>
+                   onblur="(this.type='text')" <?php echo "value='$row5->data_urodzenia'" ?> required>
+            <input id='id_rezyser' name='id_rezyser' type='hidden' value='<?= $row5->id_rezyser ?>'>
         </div>
         <br>
         <?php
@@ -64,25 +66,30 @@
                 <span class="input-group-text">Aktor nr <?= $i ?></span>
                 <input type="text" name="aktor_imie[]" aria-label="imie" class="form-control"
                        maxlength="63"
-                       placeholder="Imie" <?php echo "value='$row2->imie'"; if ($i <= 2) {
+                       placeholder="Imie" <?php echo "value='$row2->imie'";
+                if ($i <= 2) {
                     echo "required";
                 } ?>>
                 <input type="text" name="aktor_nazwisko[]" aria-label="nazwisko" class="form-control"
                        maxlength="63"
-                       placeholder="Nazwisko" <?php echo "value='$row2->nazwisko'"; if ($i <= 2) {
+                       placeholder="Nazwisko" <?php echo "value='$row2->nazwisko'";
+                if ($i <= 2) {
                     echo "required";
                 } ?>>
                 <input type="text" name="aktor_data[]>" aria-label="data_ur" class="form-control"
                        placeholder="Data urodzenia" onfocus="(this.type='date')"
-                       onblur="(this.type='text')" <?php echo "value='$row2->data_urodzenia'"; if ($i <= 2) {
+                       onblur="(this.type='text')" <?php echo "value='$row2->data_urodzenia'";
+                if ($i <= 2) {
                     echo "required";
                 } ?>>
                 <input type="text" name="aktor_rola[]" aria-label="rola" class="form-control"
                        maxlength="254"
-                       placeholder="Rola" <?php echo "value='$row2->rola'"; if ($i <= 2) {
+                       placeholder="Rola" <?php echo "value='$row2->rola'";
+                if ($i <= 2) {
                     echo "required";
                 } ?>>
             </div>
+            <input id='id_aktor' name='id_aktor[]' type='hidden' value='<?=$row2->id_aktor ?>'>
             <?php
         }
         ?>
@@ -105,16 +112,20 @@
                    id="link_yt" <?php echo "value='$row->link_zwiastun'" ?>>
         </div>
         <?php
-        for ($i = 1; $i <= 5; $i++) { ?>
+        for ($i = 1; $i <= 5; $i++) {
+        $row3 = $result3->fetch()
+            ?>
         <div class="input-group mb-3">
             <span class="input-group-text" id="scena">Scena <?= $i ?></span>
             <input type="text" class="form-control" name="scena[]" aria-label="scena"
                    aria-describedby="scena"
-            <?php echo "value='" . $result3->fetch()->link_scena . "'"; if ($i <= 2) echo "required";
+            <?php echo "value='" . $row3->link_scena . "'";
+            if ($i <= 2) echo "required";
             echo ">";
-            echo "</div>";
-            } ?>
-            <button type="submit" id="film_dodaj" name="film_dodaj_admin" class="btn btn-outline-success">Dodaj
+            echo "</div>
+            <input id='id_scena' name='id_scena[]' type='hidden' value='". $row3->id . "'>";
+        } ?>
+            <button type="submit" id="film_edit" name="film_edit_admin" class="btn btn-outline-success">Edytuj film
             </button>
     </form>
 <?php }

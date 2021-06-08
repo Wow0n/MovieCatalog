@@ -82,41 +82,41 @@ include '../server/film_details.php';
     </article>
     <aside>
         <?php
-        if ($row7_1->id_uzytkownik == $_SESSION['account_id'] || $row7_1->id_uzytkownik == null) {
+        if ($row7_1->id_uzytkownik != $_SESSION['account_id'] || $row7_1->id_uzytkownik == null) {
             echo"
             <div class='form_rate'>
-            <h4 > Oceń film:</h4 ><br >
-            <form method = 'post' >
-                <div class='rating' >
-                    <label >
-                        <input type = 'radio' name = 'stars' value = '1' />
-                        <span class='icon' > ★</span >
+            <h4> Oceń film:</h4><br>
+            <form method ='post'>
+                <div class='rating'>
+                    <label>
+                        <input type = 'radio' name = 'stars' value = '1' required>
+                        <span class='icon'>★</span>
+                    </label>
+                    <label>
+                        <input type = 'radio' name = 'stars' value = '2'>
+                        <span class='icon'>★</span>
+                        <span class='icon'>★</span>
                     </label >
                     <label >
-                        <input type = 'radio' name = 'stars' value = '2' />
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
+                        <input type = 'radio' name = 'stars' value = '3'>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
                     </label >
                     <label >
-                        <input type = 'radio' name = 'stars' value = '3' />
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
+                        <input type = 'radio' name = 'stars' value = '4'>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
                     </label >
                     <label >
-                        <input type = 'radio' name = 'stars' value = '4' />
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                    </label >
-                    <label >
-                        <input type = 'radio' name = 'stars' value = '5' />
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
-                        <span class='icon' > ★</span >
+                        <input type = 'radio' name = 'stars' value = '5'>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
+                        <span class='icon'> ★</span>
                     </label >
                 </div >
                 <div class='mb-3' >
@@ -134,7 +134,7 @@ include '../server/film_details.php';
         <?php
         while ($row8 = $result8->fetch()) {
             if ($row8->login == null){
-                echo "<h5>Anonim:</h5><br>";
+                echo "<h5>Gość:</h5><br>";
             } else {
                 echo "<h5>$row8->login:</h5><br>";
             }
