@@ -26,7 +26,7 @@
                     <a class="nav-link" href="../controllers/actors_all.php">Wszyscy aktorzy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Statystyki</a>
+                    <a class="nav-link" href="../controllers/stats.php">Statystyki</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../controllers/new_film.php">Dodaj film</a>
