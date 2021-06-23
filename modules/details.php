@@ -46,16 +46,25 @@ include '../server/film_details.php';
             <tr>
                 <td>";
                 if ($result3->rowcount() != null) {
-                    echo "<div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                    $row3 = $result3->fetchAll();
+
+                    $check_url = true;
+                    for ($i = 0; $i < count($row3); $i++) {
+                        if (!filter_var($row3[$i]->link_scena, FILTER_VALIDATE_URL))
+                            $check_url = false;
+                    }
+
+                    if ($check_url) {
+                        echo "<div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
                           <div class='carousel-inner'>";
 
-                    $row3 = $result3->fetch();
-                    echo "<div class='carousel-item active'><img src='$row3->link_scena' class='d-block w-100' alt='scena'></div>";
 
-                    while ($row3 = $result3->fetch()) {
-                        echo "<div class='carousel-item'><img src='$row3->link_scena' class='d-block w-100' alt='scena'></div>";
-                    }
-                    echo "
+                        echo "<div class='carousel-item active'><img src='" . $row3[0]->link_scena . "' class='d-block w-100' alt='scena'></div>";
+
+                        for ($i = 1; $i < count($row3); $i++) {
+                            echo "<div class='carousel-item'><img src='" . $row3[$i]->link_scena . "' class='d-block w-100' alt='scena'></div>";
+                        }
+                        echo "
                           <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
                             <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                             <span class='visually-hidden'>Previous</span>
@@ -65,6 +74,9 @@ include '../server/film_details.php';
                             <span class='visually-hidden'>Next</span>
                           </button>
                         </div>";
+                    } else {
+                        echo "Brak galerii!";
+                    }
                 } else {
                     echo "Brak galerii!";
                 }
@@ -83,7 +95,7 @@ include '../server/film_details.php';
     <aside>
         <?php
         if ($row7_1->id_uzytkownik != $_SESSION['account_id'] || $row7_1->id_uzytkownik == null) {
-            echo"
+            echo "
             <div class='form_rate'>
             <h4> Oceń film:</h4><br>
             <form method ='post'>
@@ -133,7 +145,7 @@ include '../server/film_details.php';
         <br><br>
         <?php
         while ($row8 = $result8->fetch()) {
-            if ($row8->login == null){
+            if ($row8->login == null) {
                 echo "<h5>Gość:</h5><br>";
             } else {
                 echo "<h5>$row8->login:</h5><br>";
@@ -175,7 +187,7 @@ include '../server/film_details.php';
                           <i class='material-icons' id='star_checked'>star</i>
                           <i class='material-icons' id='star_checked'>star</i>";
                     break;
-                  }
+            }
             echo "<br>$row8->komentarz<br><br>";
 
         }
