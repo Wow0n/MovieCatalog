@@ -1,9 +1,14 @@
+<h4>Edycja ocen i komentarzy</h4><hr>
+<h5>Komentarze:</h5><br>
+<?php
+
+?>
+
+<form method='post'>
 <?php
 include "../server/film_details.php";
 
-echo "<h4>Edycja ocen i komentarzy</h4><hr>";
 if ($row6->ilosc > 0) {
-    echo "<h5>Komentarze:</h5><br><form method='post'>";
     while ($row8 = $result8->fetch()) {
         if ($row8->login == null) {
             echo "<br>Gość:";
@@ -34,6 +39,39 @@ if ($row6->ilosc > 0) {
     </button>
     </form>
     <?php
+    if (isset($_POST['film_comment_edit_admin'])) {
+        $usuniete_komentarze = 0;
+        $edytowane_komentarze = 0;
+
+        $query = "SELECT * FROM v_oceny_user WHERE id_film = " . $_GET['id'];
+        $result = $db->getInstance()->prepare($query);
+        $result->execute();
+
+        for ($i = 0; $i < count(array_filter($_POST['komentarz'])); $i++) {
+            $row = $result->fetch();
+
+            if ($_POST['komentarz'][$i] != $row->komentarz || $_POST['ocena'][$i] != $row->watrosc_oceny) {
+                $query = "UPDATE oceny SET komentarz ='" . $_POST['komentarz'][$i] . "', watrosc_oceny = " . $_POST['ocena'][$i] .
+                    " WHERE id =" . $_POST['id_opinia'][$i];
+                $result = $db->getInstance()->prepare($query);
+                $result->execute();
+                $edytowane_komentarze += 1;
+                $query = null;
+            }
+        }
+
+        if ($_POST['chbx_delete'] != null) {
+            for ($i = 0; $i < count(array_filter($_POST['chbx_delete'])); $i++) {
+                $query = "DELETE FROM oceny where id = " . $_POST['chbx_delete'][$i];
+                $result = $db->getInstance()->prepare($query);
+                $result->execute();
+                $usuniete_komentarze += 1;
+                $query = null;
+            }
+        }
+        echo "<br>Usunięto: $usuniete_komentarze | Zedytowano: $edytowane_komentarze";
+        echo "<meta http-equiv='refresh' content='1'>";
+    }
 } else {
     echo "<h5>Brak ocen!</h5>";
 }
